@@ -59,10 +59,10 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
             },
             {
                 "HORA": "14:00 a 18:00",
-                "DESCRIPCION": "4 - Hora Extra Diurna dominical",
+                "DESCRIPCION": "4 - Hora Extra Diurna dominical (125+80)  205%",
                 "CC-NOMINA": "M310",
-                "PORCENTAJE": 200,
-                "VALOR($)": vl_hora * (200 / 100) * 4,
+                "PORCENTAJE": 205,
+                "VALOR($)": vl_hora * (205 / 100) * 4,
             },
         ],
         "LUNES A VIERNES ORDINARIO NOCTURNO (18:00-6:00)": [
@@ -111,14 +111,14 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
                 "VALOR($)": vl_hora * (115 / 100) * 3,
             },
             {
-                "HORA": "18:00 a 24:00",
+                "HORA": "18:00 a 00:00",
                 "DESCRIPCION": "6 - Compensatorio lab.domingo",
                 "CC-NOMINA": "1M08",
                 "PORCENTAJE": 100,
                 "VALOR($)": vl_hora * (100 / 100) * 6,
             },
             {
-                "HORA": "24:00 a 02:00",
+                "HORA": "00:00 a 02:00",
                 "DESCRIPCION": "2 - Jornada nocturna ordinaria Recargo",
                 "CC-NOMINA": "1MA1",
                 "PORCENTAJE": 135,
@@ -132,7 +132,7 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
                 "VALOR($)": vl_hora * (175 / 100) * 4,
             },
         ],
-        "DOMINGO DIURNO (6:00-14:00)": [
+        "DOMINGO DIURNO 8 HORAS FESTIVO (6:00-14:00)": [
             {
                 "HORA": "06:00 a 14:00",
                 "DESCRIPCION": "FESTIVO",
@@ -142,7 +142,7 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
             },
             {
                 "HORA": "06:00 a 14:00",
-                "DESCRIPCION": "8 Hora Diurna Festiva (75%)",
+                "DESCRIPCION": "8 Hora Diurna Festiva (80%)",
                 "CC-NOMINA": "1MAM",
                 "PORCENTAJE": 80,
                 "VALOR($)": vl_hora * (80 / 100) * 8,
@@ -188,7 +188,7 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
             },
             {
                 "HORA": "21:00 a 22:00",
-                "DESCRIPCION": "1 - Hora Noct Dominic (110%)",
+                "DESCRIPCION": "1 - Hora Noct Dominic (115%)",
                 "CC-NOMINA": "1M07",
                 "PORCENTAJE": 115,
                 "VALOR($)": vl_hora * (115 / 100) * 1,
@@ -248,10 +248,47 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
             },
             {
                 "HORA": "02:00 a 06:00",
-                "DESCRIPCION": "4 Horas Extra Noct Festiva",
+                "DESCRIPCION": "4 Horas Extra Noct Festiva  (80+175HEXT NO) 255%",
                 "CC-NOMINA": "M315",
-                "PORCENTAJE": 250,
-                "VALOR($)": vl_hora * (250 / 100) * 4,
+                "PORCENTAJE": 255,
+                "VALOR($)": vl_hora * (255 / 100) * 4,
+            },
+        ],
+        "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)": [
+            {
+                "HORA": "18:00 a 02:00",
+                "DESCRIPCION": "Dominical",
+                "CC-NOMINA": "1M02",
+                "PORCENTAJE": 100,
+                "VALOR($)": vl_dia * (100 / 100),
+            },
+            {
+                "HORA": "18:00 a 21:00",
+                "DESCRIPCION": "3 - Horas diurnas dominicales",
+                "CC-NOMINA": "1M06",
+                "PORCENTAJE": 80,
+                "VALOR($)": vl_hora * (80 / 100) * 3,
+            },
+            {
+                "HORA": "21:00 a 02:00",
+                "DESCRIPCION": "5 - Horas nocturnas dominicales 115%",
+                "CC-NOMINA": "1M07",
+                "PORCENTAJE": 115,
+                "VALOR($)": vl_hora * (115 / 100) * 5,
+            },
+            {
+                "HORA": "18:00 a 02:00",
+                "DESCRIPCION": "8 - Compensatorio lab.domingo",
+                "CC-NOMINA": "1M08",
+                "PORCENTAJE": 100,
+                "VALOR($)": vl_hora * (100 / 100) * 8,
+            },
+            {
+                "HORA": "02:00 a 06:00",
+                "DESCRIPCION": "4 - Hora Extra Nocturna dominic (80+175) 255%",
+                "CC-NOMINA": "M315",
+                "PORCENTAJE": 255,
+                "VALOR($)": vl_hora * (255 / 100) * 4,
             },
         ],
     }
@@ -302,11 +339,12 @@ with main_header_col1:
                 "DOMINGO DIURNO (06:00-18:00)",
                 "LUNES A VIERNES ORDINARIO NOCTURNO (18:00-6:00)",
                 "DOMINGO NOCTURNO (18:00-6:00)",
-                "DOMINGO DIURNO (6:00-14:00)",
+                "DOMINGO DIURNO 8 HORAS FESTIVO (6:00-14:00)",
                 "DIA A BASICO 8 HORAS NOCHE (22:00-06:00)",
                 "DOMINGO 8 HORAS (14:00-22:00)",
                 "LUNES A VIERNES ORDINARIO 8 HORAS (14:00-22:00)",
                 "SABADO NOCTURNO (18:00-06:00)",
+                "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)",
             ],
             index=None,
             placeholder="Seleccionar tipo de jornada",
