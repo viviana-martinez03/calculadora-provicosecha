@@ -678,16 +678,17 @@ with tab2:
                 # For multi-day jornadas, show "Cantidad de Horas" fields and jornal multiplier
                 st.write("📝 *Jornada de múltiples días - Ajustar parámetros:*")
 
-                # Jornal multiplier field
-                jornal_multiplier = st.number_input(
-                    f"Multiplicador de Jornal para {jornada}",
-                    min_value=0.1,
-                    value=1.0,
-                    step=0.1,
-                    format="%.1f",
-                    help="Número por el cual multiplicar el valor del jornal",
-                    key=f"jornal_{jornada}",
-                )
+                if jornada != "Hora ley 2101 de 2021":
+                    # Jornal multiplier field
+                    jornal_multiplier = st.number_input(
+                        f"Multiplicador de Jornal para {jornada}",
+                        min_value=0.1,
+                        value=1.0,
+                        step=0.1,
+                        format="%.1f",
+                        help="Número por el cual multiplicar el valor del jornal",
+                        key=f"jornal_{jornada}",
+                    )
 
                 # Get sample data to identify which fields have hours
                 sample_data = get_jornada_data(
