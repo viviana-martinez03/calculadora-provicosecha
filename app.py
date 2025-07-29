@@ -448,7 +448,7 @@ def is_multi_day_jornada(jornada_name):
     """
     Determine if a jornada covers multiple days (needs "Cantidad de Horas" field)
     """
-    multi_day_keywords = ["LUNES A SABADO", "LUNES A VIERNES"]
+    multi_day_keywords = ["LUNES A SABADO", "LUNES A VIERNES", "Hora ley"]
     return any(keyword in jornada_name for keyword in multi_day_keywords)
 
 
