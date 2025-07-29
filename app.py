@@ -372,7 +372,7 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
                 "PORCENTAJE": 255,
                 "VALOR($)": vl_hora * (255 / 100) * 1,
                 "HOURS_FIELD": "1",
-                "JORNAL_FIELD": False,
+                "JORNAL_FIELD": True,
             },
             {
                 "HORA": "1 hora",
