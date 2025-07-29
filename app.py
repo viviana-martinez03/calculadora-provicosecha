@@ -364,6 +364,35 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
                 "JORNAL_FIELD": False,
             },
         ],
+        "Hora ley 2101 de 2021": [
+            {
+                "HORA": "1 hora",
+                "DESCRIPCION": "1-hora extra Nocturna Festiva  ley 2101",
+                "CC-NOMINA": "1MCI",
+                "PORCENTAJE": 255,
+                "VALOR($)": vl_hora * (255 / 100) * 1,
+                "HOURS_FIELD": "1",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "1 hora",
+                "DESCRIPCION": "1-hora extra Dia ley 2101",
+                "CC-NOMINA": "1MCG",
+                "PORCENTAJE": 125,
+                "VALOR($)": vl_hora * (125 / 100) * 1,
+                "HOURS_FIELD": "1",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "1 hora",
+                "DESCRIPCION": "1-hora extra Nocturna  ley 2101",
+                "CC-NOMINA": "1MCH",
+                "PORCENTAJE": 175,
+                "VALOR($)": vl_hora * (175 / 100) * 1,
+                "HOURS_FIELD": "1",
+                "JORNAL_FIELD": False,
+            },
+        ],
     }
 
     # Return the data for the selected jornada
@@ -476,6 +505,7 @@ with tab1:
                     "LUNES A VIERNES ORDINARIO 8 HORAS (14:00-22:00)",
                     "SABADO NOCTURNO (18:00-06:00)",
                     "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)",
+                    "Hora ley 2101 de 2021",
                 ],
                 index=None,
                 placeholder="Seleccionar tipo de jornada",
@@ -625,6 +655,7 @@ with tab2:
         "LUNES A VIERNES ORDINARIO 8 HORAS (14:00-22:00)",
         "SABADO NOCTURNO (18:00-06:00)",
         "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)",
+        "Hora ley 2101 de 2021",
     ]
 
     selected_jornadas = st.multiselect(
