@@ -18,7 +18,7 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
     vl_hora: valor hora (basico/divisor)
     """
 
-    # Complete data structure - all 9 jornadas configured with direct formulas
+    # Complete data structure - all jornadas configured with direct formulas
     jornada_data = {
         "LUNES A SABADO ORDINARIO DIURNO (06:00-18:00)": [
             {
@@ -364,6 +364,82 @@ def get_jornada_data(tipo_jornada, vl_dia=0, vl_hora=0):
                 "JORNAL_FIELD": False,
             },
         ],
+        "DIA DOMINGO HORAS NOCHE (22:00-6:00)": [
+            {
+                "HORA": "22:00 a 06:00",
+                "DESCRIPCION": "Dominical",
+                "CC-NOMINA": "1M02",
+                "PORCENTAJE": 100,
+                "VALOR($)": vl_dia * (100 / 100),
+                "HOURS_FIELD": None,
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "22:00 a 12:00",
+                "DESCRIPCION": "2 - Horas Noct Dominical",
+                "CC-NOMINA": "1M07",
+                "PORCENTAJE": 115,
+                "VALOR($)": vl_hora * (115 / 100) * 2,
+                "HOURS_FIELD": "2",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "22:00 a 12:00",
+                "DESCRIPCION": "2 - Compensatorio Lab Dominical",
+                "CC-NOMINA": "1M08",
+                "PORCENTAJE": 100,
+                "VALOR($)": vl_hora * (100 / 100) * 2,
+                "HOURS_FIELD": "2",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "12:00 a 06:00",
+                "DESCRIPCION": "6 - Jornada Nocturna Dominical",
+                "CC-NOMINA": "1MA1",
+                "PORCENTAJE": 135,
+                "VALOR($)": vl_hora * (135 / 100) * 6,
+                "HOURS_FIELD": "6",
+                "JORNAL_FIELD": False,
+            },
+        ],
+        "DIA SABADO HORAS NOCHE (22:00-6:00)": [
+            {
+                "HORA": "22:00 a 06:00",
+                "DESCRIPCION": "Jornal",
+                "CC-NOMINA": "1MF9",
+                "PORCENTAJE": 100,
+                "VALOR($)": vl_dia * (100 / 100),
+                "HOURS_FIELD": None,
+                "JORNAL_FIELD": True,
+            },
+            {
+                "HORA": "22:00 a 12:00",
+                "DESCRIPCION": "2 - Hora de Recargo Nocturno",
+                "CC-NOMINA": "M220",
+                "PORCENTAJE": 35,
+                "VALOR($)": vl_hora * (35 / 100) * 2,
+                "HOURS_FIELD": "2",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "22:00 a 06:00",
+                "DESCRIPCION": "6 - Recargo Noct Festivo",
+                "CC-NOMINA": "1M11",
+                "PORCENTAJE": 35,
+                "VALOR($)": vl_hora * (35 / 100) * 6,
+                "HOURS_FIELD": "6",
+                "JORNAL_FIELD": False,
+            },
+            {
+                "HORA": "22:00 a 06:00",
+                "DESCRIPCION": "6 - Domingo o festivo Noct",
+                "CC-NOMINA": "1M12",
+                "PORCENTAJE": 80,
+                "VALOR($)": vl_hora * (80 / 100) * 6,
+                "HOURS_FIELD": "6",
+                "JORNAL_FIELD": False,
+            },
+        ],
         "Hora ley 2101 de 2021": [
             {
                 "HORA": "1 hora",
@@ -505,6 +581,8 @@ with tab1:
                     "LUNES A VIERNES ORDINARIO 8 HORAS (14:00-22:00)",
                     "SABADO NOCTURNO (18:00-06:00)",
                     "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)",
+                    "DIA DOMINGO HORAS NOCHE (22:00-6:00)",
+                    "DIA SABADO HORAS NOCHE (22:00-6:00)",
                     "Hora ley 2101 de 2021",
                 ],
                 index=None,
@@ -655,6 +733,8 @@ with tab2:
         "LUNES A VIERNES ORDINARIO 8 HORAS (14:00-22:00)",
         "SABADO NOCTURNO (18:00-06:00)",
         "DOMINGO A LUNES FESTIVO NOCTURNO (18:00-06:00)",
+        "DIA DOMINGO HORAS NOCHE (22:00-6:00)",
+        "DIA SABADO HORAS NOCHE (22:00-6:00)",
         "Hora ley 2101 de 2021",
     ]
 
